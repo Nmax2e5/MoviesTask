@@ -1,0 +1,36 @@
+﻿@model Movies.MVC.Models.MovieModel
+
+@{
+    ViewData["Title"] = "DetailPage";
+}
+
+<h1>DetailPage</h1>
+
+<div>
+    <h4>MovieModel</h4>
+    <img src="@Url.Content(Model.Info.ImageUrl)" alt=""/>
+    <hr />
+    <dl class="row">
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Year)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Year)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Title)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Title)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Info.Rating)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Info.Rating)
+        </dt>
+    </dl>
+</div>
+<div>
+    <input type="button" onclick= "history.go(-1)" value="Back to list" />
+</div>

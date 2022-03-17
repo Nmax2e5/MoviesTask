@@ -1,0 +1,43 @@
+﻿@model IEnumerable<Movies.MVC.Models.MovieModel>
+
+@{
+    ViewData["Title"] = "Home";
+}
+
+<h1>New Movies</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Year)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Title)
+            </th>
+            <th>
+                <form asp-controller="Movie" asp-action="Search">
+                    <p>
+                        Title: <input type="text" name="SearchString" />
+                        <input type="submit" value="Filter" />
+                    </p>
+                </form>
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Year)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Title)
+            </td>
+            <td>
+                @Html.ActionLink("Details", "DetailPage", new { name = item.Title })
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
